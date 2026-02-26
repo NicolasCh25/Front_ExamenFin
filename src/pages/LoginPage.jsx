@@ -11,7 +11,7 @@ const LoginPage = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
-    const { login, register } = useAuth(); // ⚠️ Necesitas register en tu AuthContext
+    const { login, register } = useAuth();
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -44,10 +44,13 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <div className="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full">
-                <h2 className="text-2xl font-bold text-center text-blue-900 mb-6">
-                    {isRegister ? 'Registrarse' : 'Iniciar Sesión'}
+        <div
+            className="min-h-screen flex items-center justify-center bg-gray-100 bg-cover bg-center"
+            style={{ backgroundImage: "url('https://didoctorio.com/wp-content/uploads/2023/08/medico-paciente-sentados-frente-al-otro-escritorio-clinica-foco-manos-medica-que-apuntan-al-monitor-computadora-portatil-cerca-concepto-medicina-scaled.jpg')" }}
+        >
+            <div className="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full backdrop-blur-sm bg-opacity-70">
+                <h2 className="text-3xl font-extrabold text-center text-blue-900 mb-6">
+                    Gestión de Citas Médicas
                 </h2>
 
                 {error && (
@@ -61,7 +64,7 @@ const LoginPage = () => {
                     {isRegister && (
                         <>
                             <div>
-                                <label className="block text-gray-700 text-sm font-bold mb-2">Nombre</label>
+                                <label className="block text-gray-1000 text-sm font-bold mb-2">Nombre</label>
                                 <input
                                     type="text"
                                     value={nombre}
@@ -72,7 +75,7 @@ const LoginPage = () => {
                             </div>
 
                             <div>
-                                <label className="block text-gray-700 text-sm font-bold mb-2">Apellido</label>
+                                <label className="block text-gray-1000 text-sm font-bold mb-2">Apellido</label>
                                 <input
                                     type="text"
                                     value={apellido}
@@ -85,7 +88,7 @@ const LoginPage = () => {
                     )}
 
                     <div>
-                        <label className="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                        <label className="block text-gray-1000 text-sm font-bold mb-2">Email</label>
                         <input
                             type="email"
                             value={email}
@@ -96,7 +99,7 @@ const LoginPage = () => {
                     </div>
 
                     <div>
-                        <label className="block text-gray-700 text-sm font-bold mb-2">Clave</label>
+                        <label className="block text-gray-1000 text-sm font-bold mb-2">Clave</label>
                         <input
                             type="password"
                             value={password}
