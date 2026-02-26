@@ -8,16 +8,28 @@ const MODULE_CONFIG = {
     title: 'Gestión de pacientes',
     // Columnas para la TABLA
     columns: [
+        { header: 'id', accessor: 'id' },
         { header: 'Nombre', accessor: 'nombre' },
         { header: 'Apellido', accessor: 'apellido' },
         { header: 'Cédula', accessor: 'cedula' },
-        { header: 'Email', accessor: 'email' }
+        { header: 'Fecha_nacimiento', accessor: 'fecha_nacimiento' },
+        { header: 'Género', accessor: 'genero' },
+        { header: 'Ciudad', accessor: 'ciudad' },
+        { header: 'Dirección', accessor: 'direccion' },
+        { header: 'Teléfono', accessor: 'telefono' },
+        { header: 'email', accessor: 'email' }
+
     ],
     // Campos para el FORMULARIO (Modal)
     formFields: [
+        { name: 'id', accessor: 'id' , required: true },
         { name: 'nombre', label: 'Nombre', required: true },
-        { name: 'apellido', label: 'Apellido', required: true },
         { name: 'cedula', label: 'Cédula', required: true },
+        { name: 'fecha_nacimiento', label: 'Fecha de nacimiento', type: 'date', required: true },
+        { name: 'genero', label: 'Género', required: true },
+        { name: 'ciudad', label: 'Ciudad', required: true },
+        { name: 'direccion', label: 'Dirección', required: true },
+        { name: 'telefono', label: 'Teléfono', required: true },
         { name: 'email', label: 'Email', type: 'email', required: true }
     ]
 };

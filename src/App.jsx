@@ -15,8 +15,12 @@ function App() {
       <AuthProvider>
         <Routes>
           {/* 1. RUTA PÚBLICA */}
-          
+          <Route element={<MainLayout />}>
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/pacientes" element={<Pacientes />} />
+                  <Route path="/especialidades" element={<Especialidades />} />
+                  <Route path="/citas" element={<Citas />} /></Route>
           
         
 
