@@ -14,7 +14,7 @@ const Navbar =()=> {
         <nav className="bg-blue-900 text-white shadow-md">
             <div className="container mx-auto px-6 py-4 flex justify-between items-center">
                 <Link to="/dashboard" className="text-xl font-bold hover:text-blue-200 transition">
-                    Sistema Acdémico 🎓
+                    Gestión de citas Médicas ⚕️
                 </Link>
 
                 <div className="flex space-x-6 items-center font-medium">

@@ -7,14 +7,18 @@ const MODULE_CONFIG = {
     endpoint: '/citas', 
     title: 'Gestión de Citas',
     columns: [
-        { header: 'ID Paciente', accessor: 'paciente_id' },
-        { header: 'ID Especialidad', accessor: 'especialidad_id' },
-        { header: 'Fecha', accessor: 'fecha' }
+        { header: 'id', accessor: 'id' },
+        { header: 'Código', accessor: 'codigo' },
+        { header: 'Descripción', accessor: 'descripcion' },
+        { header: 'ID paciente', accessor: 'id_paciente' },
+        { header: 'ID especialidad', accessor: 'id_especialidad' },
     ],
     formFields: [
-        { name: 'paciente_id', label: 'ID del paciente', type: 'number', required: true },
-        { name: 'especialidad_id', label: 'ID de la especialidad', type: 'number', required: true },
-        { name: 'fecha', label: 'Fecha de la cita', type: 'date', required: true }
+        { name: 'id', label: 'id', type: 'number', required: true },
+        { name: 'codigo', label: 'Código de la cita', type: 'text', required: true },
+        { name: 'descripcion', label: 'Descripción de la cita', type: 'text', required: true },
+        { name: 'id_paciente', label: 'ID del paciente', type: 'number', required: true },
+        { name: 'id_especialidad', label: 'ID de la especialidad', type: 'number', required: true },
     ]
 };
 

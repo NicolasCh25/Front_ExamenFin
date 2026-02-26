@@ -7,14 +7,14 @@ const MODULE_CONFIG = {
     endpoint: '/especialidades', 
     title: 'Gestión de especialidades',
     columns: [
-        { header: 'Código', accessor: 'codigo' },
+        { header: 'id', accessor: 'id' },
         { header: 'Nombre', accessor: 'nombre' },
-        { header: 'Créditos', accessor: 'creditos' }
+        { header: 'Descripción', accessor: 'descripcion' }
     ],
     formFields: [
-        { name: 'codigo', label: 'Código', required: true },
+        { name: 'id', label: 'ID', type: 'number', required: true },
         { name: 'nombre', label: 'Nombre de la Especialidad', required: true },
-        { name: 'creditos', label: 'Número de Créditos', type: 'number', required: true }
+        { name: 'descripcion', label: 'Descripción de la Especialidad', required: true }
     ]
 };
 

@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect, useContext } from 'react';
 import api from '../config/api';
+
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -16,21 +17,47 @@ export const AuthProvider = ({ children }) => {
         setLoading(false);
     }, []);
 
-    //Login conectada al backend
+    // LOGIN
     const login = async (email, password) => {
         try {
-            //Peticion a http://localhost:3000/api/auth/login
             const { data } = await api.post('/auth/login', { email, password });
+
             localStorage.setItem('token', data.token);
             localStorage.setItem('user', JSON.stringify(data.user));
             setUser(data.user);
             
             return { success: true };
+
         } catch (error) {
             console.error("Error en login:", error);
             return { 
                 success: false, 
-                message: error.response?.data?.message || 'Credenciales incorrectas o error de servidor.' 
+                message: error.response?.data?.message || 
+                'Credenciales incorrectas o error de servidor.' 
+            };
+        }
+    };
+
+    // REGISTro
+    const register = async (userData) => {
+        try {
+           
+            const { data } = await api.post('/auth/register', userData);
+
+            if (data.token) {
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('user', JSON.stringify(data.user));
+                setUser(data.user);
+            }
+
+            return { success: true };
+
+        } catch (error) {
+            console.error("Error en register:", error);
+            return {
+                success: false,
+                message: error.response?.data?.message || 
+                'Error al registrar usuario.'
             };
         }
     };
@@ -42,7 +69,15 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ user, login, logout, loading }}>
+        <AuthContext.Provider 
+            value={{ 
+                user, 
+                login, 
+                register, 
+                logout, 
+                loading 
+            }}
+        >
             {children}
         </AuthContext.Provider>
     );
